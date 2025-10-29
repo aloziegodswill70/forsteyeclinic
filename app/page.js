@@ -7,6 +7,7 @@ import TestsSection from "../components/TestsSection"
 import RiskFactorsSection from "../components/RiskFactorsSection"
 import FaqSection from "../components/FaqSection"
 import ContactSection from "@/components/ContactSection"
+import BranchesSection from "@/components/BranchesSection"
 
 export default function Home() {
   return (
@@ -15,6 +16,12 @@ export default function Home() {
       <section id="hero">
         <HeroSection />
       </section>
+
+        {/* Booking Section */}
+      <section id="branches" className="bg-blue-50">
+        <BranchesSection />
+      </section>
+
 
       {/* Booking Section */}
       <section id="booking" className="bg-blue-50">
