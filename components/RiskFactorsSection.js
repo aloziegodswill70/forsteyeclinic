@@ -18,12 +18,12 @@ const riskFactors = [
   {
     title: 'Family History',
     description: 'Inherited risk for glaucoma, cataracts, or macular degeneration.',
-    image: '/images/family history.jpeg', // ⚠️ rename the file in /public/images
+    image: '/images/family history.jpeg',
   },
   {
     title: 'Prolonged Screen Time',
     description: 'Leads to digital eye strain, blurred vision, and dry eyes.',
-    image: '/images/screen time.jpeg', // ⚠️ rename file in /public/images
+    image: '/images/screen time.jpeg',
   },
   {
     title: 'Smoking',
@@ -51,7 +51,7 @@ export default function RiskFactorsSection() {
 
   return (
     <section className="py-16 bg-white text-center relative overflow-hidden">
-      <h2 className="text-3xl font-bold text-forstRed mb-8">
+      <h2 className="text-3xl font-bold text-[#F23A2E] mb-8">
         Common Eye Risk Factors
       </h2>
 
@@ -63,9 +63,9 @@ export default function RiskFactorsSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -40 }}
             transition={{ duration: 1.2 }}
-            className="absolute inset-0 flex flex-col items-center justify-center p-6 rounded-lg shadow-lg bg-white/90 backdrop-blur-md"
+            className="absolute inset-0 flex flex-col items-center justify-center p-6 rounded-2xl shadow-lg bg-[#FFF8E1] border border-[#F9B935]"
           >
-            <div className="w-32 h-32 relative mb-4 rounded-full overflow-hidden shadow-md">
+            <div className="w-32 h-32 relative mb-4 rounded-full overflow-hidden border-4 border-[#F9B935] shadow-md">
               <Image
                 src={current.image}
                 alt={current.title}
@@ -76,7 +76,7 @@ export default function RiskFactorsSection() {
               />
             </div>
 
-            <h3 className="text-xl font-semibold text-forstRed">
+            <h3 className="text-xl font-semibold text-[#F23A2E]">
               {current.title}
             </h3>
             <p className="mt-2 text-gray-700 max-w-sm">{current.description}</p>
@@ -84,8 +84,8 @@ export default function RiskFactorsSection() {
         </AnimatePresence>
       </div>
 
-      {/* Background subtle gradient */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-forstTeal/10 -z-10"></div>
+      {/* Subtle gold fade for elegance */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-[#FFF4CC]/40 -z-10"></div>
     </section>
   )
 }

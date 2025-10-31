@@ -43,8 +43,8 @@ export default function DoctorsSection() {
   const doctor = doctors[index]
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-gray-50 px-4">
-      <h2 className="text-center text-3xl font-bold text-forstRed mb-10">
+    <section className="py-16 bg-[#FFF8E1] px-4">
+      <h2 className="text-center text-3xl font-bold text-[#F23A2E] mb-10">
         Meet Our Doctors
       </h2>
 
@@ -56,22 +56,22 @@ export default function DoctorsSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 0.8 }}
-            className="bg-white rounded-2xl shadow-lg p-8"
+            className="bg-white rounded-2xl shadow-md p-8 border border-[#F9B935]"
           >
             <img
               src={doctor.img}
               alt={doctor.name}
-              className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-forstRed mb-6"
+              className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-[#F9B935] mb-6"
             />
-            <h3 className="text-xl font-semibold text-forstRed">
+            <h3 className="text-xl font-semibold text-[#F23A2E]">
               {doctor.name}
             </h3>
             <p className="text-sm text-gray-600 mt-1">{doctor.specialty}</p>
-            <p className="text-gray-500 mt-3">{doctor.desc}</p>
+            <p className="text-gray-700 mt-3">{doctor.desc}</p>
 
             <a
               href="/book/doctor"
-              className="inline-block mt-6 px-5 py-2 bg-forstRed text-white rounded-lg hover:bg-red-700 transition"
+              className="inline-block mt-6 px-5 py-2 bg-[#F9B935] text-[#1A1A1A] font-semibold rounded-lg hover:bg-[#F23A2E] hover:text-white transition"
             >
               Book an Appointment
             </a>
@@ -85,7 +85,7 @@ export default function DoctorsSection() {
               key={i}
               onClick={() => setIndex(i)}
               className={`w-3 h-3 rounded-full ${
-                i === index ? 'bg-forstRed' : 'bg-gray-300'
+                i === index ? 'bg-[#F23A2E]' : 'bg-[#F9B935]'
               } transition`}
             />
           ))}
