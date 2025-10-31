@@ -10,39 +10,36 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const links = [
-    { href: '/', label: 'Home', color: 'bg-[#F25C05] hover:bg-[#D63C05]' },
-    { href: '/reception', label: 'Reception', color: 'bg-[#F7B731] hover:bg-[#F25C05]' },
-    { href: '/booking', label: 'Booking', color: 'bg-[#F25C05] hover:bg-[#D63C05]' },
-    { href: '/billing', label: 'Billing', color: 'bg-[#F7B731] hover:bg-[#F25C05]' },
-    { href: '/about', label: 'About', color: 'bg-[#F25C05] hover:bg-[#D63C05]' },
-    { href: '/vision', label: 'Vision', color: 'bg-[#F7B731] hover:bg-[#F25C05]' },
-    { href: '/mission', label: 'Mission', color: 'bg-[#F25C05] hover:bg-[#D63C05]' },
-    { href: '/admin', label: 'Admin', color: 'bg-[#F7B731] hover:bg-[#F25C05]' },
+    { href: '/', label: 'Home' },
+    { href: '/reception', label: 'Reception' },
+    { href: '/booking', label: 'Booking' },
+    { href: '/billing', label: 'Billing' },
+    { href: '/about', label: 'About' },
+    { href: '/vision', label: 'Vision' },
+    { href: '/mission', label: 'Mission' },
+    { href: '/admin', label: 'Admin' },
   ]
 
   return (
-    <nav className="bg-white shadow-md py-2 fixed w-full z-50">
-      <div className="container mx-auto flex items-center justify-between px-4">
+    <nav className="bg-[#F23A2E] shadow-md fixed top-0 w-full z-50">
+      <div className="container mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <img
-            src="/images/feclogo1.png"
-            alt="Forst Eye Clinic Logo"
-            className="w-10 h-10 rounded-full shadow-sm"
-          />
-          <span className="text-[#F25C05] font-extrabold tracking-wide text-lg">
+          <span className="text-white font-extrabold text-lg tracking-wide">
             Forst Eye Clinic
           </span>
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex gap-3">
+        <div className="hidden md:flex gap-2">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`px-4 py-2 rounded-full text-white font-medium shadow-md transition ${link.color} ${
-                pathname === link.href ? 'ring-2 ring-[#F25C05]' : ''
+              className={`px-4 py-2 rounded-full font-semibold transition ${
+                pathname === link.href
+                  ? 'bg-[#F9B935] text-[#1A1A1A]'
+                  : 'text-white hover:bg-[#F9B935] hover:text-[#1A1A1A]'
               }`}
             >
               {link.label}
@@ -52,25 +49,27 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-[#F25C05] focus:outline-none"
+          className="md:hidden text-white"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
-          <div className="flex flex-col items-center py-4 space-y-2">
+        <div className="md:hidden bg-[#F23A2E] shadow-md border-t border-[#F9B935]/40">
+          <div className="flex flex-col items-center py-3 space-y-2">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`w-10/12 text-center py-2 rounded-full text-white font-medium transition ${link.color} ${
-                  pathname === link.href ? 'ring-2 ring-[#F25C05]' : ''
+                className={`w-10/12 text-center py-2 rounded-full font-medium transition ${
+                  pathname === link.href
+                    ? 'bg-[#F9B935] text-[#1A1A1A]'
+                    : 'text-white hover:bg-[#F9B935] hover:text-[#1A1A1A]'
                 }`}
               >
                 {link.label}

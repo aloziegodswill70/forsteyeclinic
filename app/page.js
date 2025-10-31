@@ -17,30 +17,27 @@ export default function Home() {
         <HeroSection />
       </section>
 
-        {/* Booking Section */}
-      <section id="branches" className="bg-blue-50">
-        <BranchesSection />
-      </section>
-
-
-      {/* Booking Section */}
+       {/* Booking Section */}
       <section id="booking" className="bg-blue-50">
         <BookingSection />
       </section>
 
+       {/* Services Section */}
+      <section id="services" className="bg-gray-50">
+        <ServicesSection />
+      </section>
+
+      
+      {/* FAQ Section */}
+      <section id="faq" className="bg-gray-50">
+        <FaqSection />
+      </section>
+
+
+
       {/* HMOs Section */}
       <section id="hmos" className="bg-white">
         <HmoSection />
-      </section>
-
-       {/* CONTACTS */}
-      <section id="hmos" className="bg-white">
-        <ContactSection />
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="bg-gray-50">
-        <ServicesSection />
       </section>
 
       {/* Doctors Section */}
@@ -58,9 +55,14 @@ export default function Home() {
         <RiskFactorsSection />
       </section>
 
-      {/* FAQ Section */}
-      <section id="faq" className="bg-gray-50">
-        <FaqSection />
+        {/* Booking Section */}
+      <section id="branches" className="bg-blue-50">
+        <BranchesSection />
+      </section>
+
+       {/* CONTACTS */}
+      <section id="contact" className="bg-white">
+        <ContactSection />
       </section>
 
      

@@ -1,16 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}"
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        forstRed: "#e63946",   // taken from logo (adjust if needed)
-        forstYellow: "#ffbf00",// background yellow in logo
-        forstTeal: "#32b3b3",
-      }
+        strawberry: '#F23A2E',
+        gold: '#F9B935',
+        warmwhite: '#FFF8F2',
+        dark: '#1A1A1A',
+        lightgray: '#EAEAEA',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [],
