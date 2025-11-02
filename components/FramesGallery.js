@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { motion, useAnimation } from 'framer-motion'
+import { ShoppingCart } from 'lucide-react'
 
 const frames = [
   {
@@ -67,46 +68,55 @@ export default function FramesGallery() {
       if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
         scrollContainer.scrollTo({ left: 0, behavior: 'smooth' })
       } else {
-        scrollContainer.scrollBy({ left: 300, behavior: 'smooth' })
+        scrollContainer.scrollBy({ left: 280, behavior: 'smooth' })
       }
     }
 
-    const interval = setInterval(scroll, 2500) // quick scroll every 2.5s
+    const interval = setInterval(scroll, 3000)
     return () => clearInterval(interval)
   }, [])
 
   return (
-    <section className="py-16 bg-[#FFF8E1] px-4 sm:px-10">
+    <section className="py-16 bg-white px-4 sm:px-10">
       <h2 className="text-center text-3xl font-bold text-[#F23A2E] mb-8">
         Our Premium Frames
       </h2>
 
       <motion.div
         ref={scrollRef}
-        className="flex overflow-x-auto space-x-6 pb-6 scrollbar-hide"
+        className="flex overflow-x-auto space-x-6 pb-6 scrollbar-hide snap-x snap-mandatory"
       >
         {frames.map((frame, idx) => (
           <motion.div
             key={idx}
             whileHover={{ scale: 1.05 }}
-            className="min-w-[250px] sm:min-w-[280px] bg-white rounded-2xl shadow-md overflow-hidden flex-shrink-0"
+            className="snap-center min-w-[85%] sm:min-w-[250px] md:min-w-[280px] bg-white rounded-2xl shadow-md overflow-hidden flex-shrink-0 border border-gray-100"
           >
             <img
               src={frame.image}
               alt={frame.name}
-              className="w-full h-48 object-cover"
+              className="w-full h-[280px] sm:h-[240px] md:h-[260px] object-cover object-center"
             />
-            <div className="p-4 flex flex-col justify-between">
+            <div className="p-4 flex flex-col justify-between h-full">
               <div>
                 <h3 className="text-lg font-semibold text-[#1A1A1A]">{frame.name}</h3>
                 <p className="text-gray-600 text-sm mt-2">{frame.desc}</p>
               </div>
+
               <a
                 href={`https://wa.me/2347067208592?text=${encodeURIComponent(frame.whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block px-4 py-2 bg-[#F9B935] text-[#1A1A1A] rounded-full text-center font-semibold hover:bg-[#F23A2E] hover:text-white transition"
+                className="mt-4 flex items-center justify-center gap-2 
+                           w-full md:w-auto md:self-start 
+                           px-5 py-3 md:px-6 md:py-2 
+                           bg-[#F9B935] text-[#1A1A1A] 
+                           rounded-full font-semibold 
+                           text-sm md:text-base 
+                           hover:bg-[#F23A2E] hover:text-white 
+                           transition shadow-md"
               >
+                <ShoppingCart className="w-5 h-5" />
                 Add to Cart
               </a>
             </div>

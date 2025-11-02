@@ -21,7 +21,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="bg-[#F23A2E] shadow-md fixed top-0 w-full z-50">
+    <nav className="bg-orange-500 shadow-md fixed top-0 w-full z-50">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">

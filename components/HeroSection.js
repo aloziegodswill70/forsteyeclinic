@@ -9,18 +9,38 @@ export default function HeroSection() {
     { name: 'Festac', href: '/branch/festac' },
     { name: 'Lekki', href: '/branch/lekki' },
     { name: 'Agbara', href: '/branch/agbara' },
-    { name: 'Book Online', href: '/booking' }, // 6th important action
+    { name: 'Book Online', href: '/booking' },
   ]
 
   return (
-    <section className="w-full bg-white py-16 px-6 md:px-12 text-center md:text-left overflow-hidden">
+    <section className="relative w-full bg-white py-12 md:py-10 px-6 md:px-12 text-center md:text-left overflow-hidden -mt-8">
+      <style jsx>{`
+        @keyframes gradientBlink {
+          0%, 100% {
+            background-position: 0% 50%;
+            opacity: 1;
+          }
+          50% {
+            background-position: 100% 50%;
+            opacity: 0.7;
+          }
+        }
+        .gradient-blink {
+          background: linear-gradient(90deg, #F23A2E, #F9B935, #F23A2E);
+          background-size: 200% 200%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: gradientBlink 3s infinite linear;
+        }
+      `}</style>
+
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         
         {/* Text Section */}
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-[#F23A2E] leading-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight gradient-blink">
             Forst Eye Clinic
-            <span className="block text-[#F9B935]">Your Vision, Our Priority</span>
+            <span className="block text-orange-500">Your Vision, Our Priority</span>
           </h1>
 
           <p className="text-gray-600 text-lg max-w-md mx-auto md:mx-0">
@@ -31,8 +51,8 @@ export default function HeroSection() {
           {/* Main CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-6">
             <Link
-              href="/booking"
-              className="bg-[#F23A2E] text-white px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-[#d72f24] transition-all"
+              href="https://wa.me/2348033435554"
+              className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:bg-[#d72f24] transition-all"
             >
               Book Appointment
             </Link>
@@ -45,7 +65,7 @@ export default function HeroSection() {
           </div>
 
           {/* Branch Buttons */}
-          <div className="mt-10 grid grid-cols-3 sm:grid-cols-6 gap-3 justify-items-center">
+          <div className="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-3 justify-items-center">
             {branches.map((branch, index) => (
               <Link
                 key={index}
@@ -59,7 +79,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Feature Highlight on the Right (Desktop Only) */}
+        {/* Right Features */}
         <div className="hidden md:flex flex-col gap-5 items-center">
           <div className="flex items-center gap-3 bg-[#FFF5E5] border border-[#F9B935]/40 rounded-2xl p-4 shadow-sm hover:shadow-md transition">
             <Eye className="text-[#F23A2E]" size={32} />
