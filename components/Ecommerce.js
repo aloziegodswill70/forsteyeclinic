@@ -1,7 +1,5 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { motion, useAnimation } from 'framer-motion'
 import { ShoppingCart } from 'lucide-react'
 
 const frames = [
@@ -55,60 +53,33 @@ const frames = [
   },
 ]
 
-export default function FramesGallery() {
-  const controls = useAnimation()
-  const scrollRef = useRef(null)
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current
-    if (!scrollContainer) return
-
-    const scroll = () => {
-      if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
-        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' })
-      } else {
-        scrollContainer.scrollBy({ left: 280, behavior: 'smooth' })
-      }
-    }
-
-    const interval = setInterval(scroll, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
+export default function Ecommerce() {
   return (
     <section className="py-16 bg-white px-4 sm:px-10">
-      <h2 className="text-center text-3xl font-bold text-[#F23A2E] mb-8">
-        Our Premium Frames
+      <h2 className="text-center text-3xl font-bold text-[#F23A2E] mb-10">
+        Shop Our Premium Frames
       </h2>
 
-      <motion.div
-        ref={scrollRef}
-        className="flex overflow-x-auto space-x-6 pb-6 scrollbar-hide snap-x snap-mandatory"
-      >
+      {/* Two-row grid layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {frames.map((frame, idx) => (
-          <motion.div
+          <div
             key={idx}
-            whileHover={{ scale: 1.05 }}
-            className="snap-center min-w-[85%] sm:min-w-[250px] md:min-w-[280px]
-                       bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col
-                       justify-between flex-shrink-0 border border-gray-100"
+            className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col"
           >
             <img
               src={frame.image}
               alt={frame.name}
-              className="w-full h-[260px] object-cover object-center"
+              className="w-full h-[240px] object-cover object-center"
             />
-
-            {/* Content Section */}
-            <div className="p-5 flex flex-col flex-grow">
-              <div className="flex-grow">
+            <div className="p-5 flex flex-col justify-between flex-grow">
+              <div>
                 <h3 className="text-lg font-semibold text-[#1A1A1A]">{frame.name}</h3>
                 <p className="text-gray-600 text-sm mt-2">{frame.desc}</p>
               </div>
 
-              {/* Button fixed at bottom */}
               <a
-                href={`https://wa.me/2347067208592?text=${encodeURIComponent(frame.whatsappMessage)}`}
+                href={`https://wa.me/2348186992818?text=${encodeURIComponent(frame.whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 flex items-center justify-center gap-2 w-full
@@ -121,9 +92,9 @@ export default function FramesGallery() {
                 Add to Cart
               </a>
             </div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   )
 }

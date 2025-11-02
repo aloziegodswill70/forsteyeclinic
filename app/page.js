@@ -9,6 +9,7 @@ import FaqSection from "../components/FaqSection"
 import ContactSection from "@/components/ContactSection"
 import BranchesSection from "@/components/BranchesSection"
 import FramesGallery from "@/components/FramesGallery"
+import Ecommerce from "@/components/Ecommerce"
 
 export default function Home() {
   return (
@@ -19,14 +20,21 @@ export default function Home() {
       </section>
 
        {/* Booking Section */}
+      <section id="ecommerce" className="bg-blue-50">
+        <Ecommerce />
+      </section>
+
+       {/* Booking Section */}
       <section id="gallery" className="bg-blue-50">
         <FramesGallery />
       </section>
+
 
        {/* Booking Section */}
       <section id="booking" className="bg-blue-50">
         <BookingSection />
       </section>
+    
 
 
        {/* Services Section */}
